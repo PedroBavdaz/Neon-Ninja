@@ -78,7 +78,9 @@ public class Enemy : MonoBehaviour
         }
 
         //calculates distance to player
-        distToPlayer = Vector2.Distance(transform.position, player.position);
+        distToPlayer = Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+
+
 
 
         if (distToPlayer <= range)
