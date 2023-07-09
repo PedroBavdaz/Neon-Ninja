@@ -20,12 +20,14 @@ public class ScoreManager : MonoBehaviour
     int highscore = 0;
     public int wave = 0;
 
+    bool waveadded = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
-        scoreText.text = score.ToString() + " POINTS";
+        scoreText.text = "POINTS: " + score.ToString() + "\n" + "WAVE: " + wave.ToString();
     }
 
     // Update is called once per frame
@@ -39,6 +41,17 @@ public class ScoreManager : MonoBehaviour
         {
             transform.position = new Vector2(600, 2375);
         }
+
+        if (score % 5 == 0 && score != 0)
+        {
+            addwave();
+
+        }
+        else
+        {
+            waveadded = false;
+        }
+
     }
 
 
@@ -48,7 +61,7 @@ public class ScoreManager : MonoBehaviour
     public void addPoint()
     {
         score += 1;
-        scoreText.text = score.ToString() + " POINTS";
+        scoreText.text = "POINTS: " + score.ToString() + "\n" + "WAVE: " + wave.ToString();
     }
     public void addhighscore()
     {
@@ -57,7 +70,11 @@ public class ScoreManager : MonoBehaviour
     }
     public void addwave()
     {
-        wave += 1;
-        waveText.text = "Wave # " + wave.ToString();
+        if (waveadded == false)
+        {
+            wave += 1;
+            scoreText.text = "POINTS: " + score.ToString() + "\n" + "WAVE: " + wave.ToString();
+            waveadded = true;
+        }
     }
 }

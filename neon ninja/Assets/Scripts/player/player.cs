@@ -14,6 +14,8 @@ public class player : MonoBehaviour
     float camShakeAmt = 0.1f;
     public float camShakeTim = 0.1f;
 
+    public GameObject movingparticle;
+
     ////////////////////////////////
     //Scores
     public ScoreManager ScoreManager;
@@ -111,6 +113,7 @@ public class player : MonoBehaviour
                     previousDistanceToTouchPos = 0;
                     currentDistanceToTouchPos = 0;
                     isMoving = true;
+                    //Instantiate(movingparticle, transform.position, Quaternion.identity);
                     dashAudioSrc.Play(); //play the audio source for dash
                     slowMo = false;
                     touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
@@ -135,6 +138,7 @@ public class player : MonoBehaviour
         {
             previousDistanceToTouchPos = (touchPosition - transform.position).magnitude;
             //Instantiate(ghost, transform.position, Quaternion.identity);
+            Instantiate(movingparticle, transform.position, Quaternion.identity);
         }
 
 
@@ -210,7 +214,8 @@ public class player : MonoBehaviour
             isMoving = false;
             slowMo = true;
             rb.velocity = Vector2.zero;
-            transform.position = playerRespawn.position;
+            //transform.position = playerRespawn.position;
+            Death();
         }
 
         //checks if the player is touching the bullet

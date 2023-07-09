@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         wave = 0;
-        spawncooldown = 1;
+        spawncooldown = 5;
         multiplier = 1;
 
         StartCoroutine(Spawner());
