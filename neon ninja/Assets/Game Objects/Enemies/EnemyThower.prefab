@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4862110910198634766
 Transform:
@@ -106,7 +106,7 @@ GameObject:
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3257437583569992590
 Transform:
@@ -185,7 +185,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808401426204472270}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   range: 20
   mustPatrol: 0
   rb: {fileID: 2933818617297777838}
-  player: {fileID: 0}
+  player: {fileID: 2205630907972929373, guid: e2db85fc560f9674a8746c491250a1f8, type: 3}
   deathblood: {fileID: 30069615174951397, guid: 1df09887fa9300442a3ba28a88a36e8c, type: 3}
   DeathBang: {fileID: 4398966452579154374, guid: beb27c56b566417448bad1aee72541b1, type: 3}
   bullet: {fileID: 4994353617667706936, guid: 3b90fc8e9d7e5e044844d6486cb4153c, type: 3}
@@ -513,7 +513,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4787189820887984269
 Transform:

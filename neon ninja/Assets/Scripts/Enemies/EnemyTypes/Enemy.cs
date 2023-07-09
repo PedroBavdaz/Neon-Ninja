@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (!(Time.timeScale == 2))
         {
@@ -78,7 +79,7 @@ public class Enemy : MonoBehaviour
         }
 
         //calculates distance to player
-        distToPlayer = Vector2.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position);
+        distToPlayer = Vector2.Distance(transform.position, player.position);
 
 
 
@@ -92,7 +93,7 @@ public class Enemy : MonoBehaviour
             }
 
             mustPatrol = false;
-            rb.velocity = Vector2.zero;
+            //rb.velocity = Vector2.zero;
 
             if (canShoot)
             {
@@ -110,7 +111,7 @@ public class Enemy : MonoBehaviour
     //Patrol instructions
     void Patrol()
     {
-        rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
+        //rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     //Flips sprite

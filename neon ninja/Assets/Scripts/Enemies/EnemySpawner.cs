@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        wave = ScoreManager.wave;
     }
 
     private IEnumerator Spawner()
@@ -37,10 +37,25 @@ public class EnemySpawner : MonoBehaviour
         while (canspawn)
         {
             yield return wait;
+            switch (wave)
+            {
+                case 0:
+                    Spawn(enemy);
+                    break;
+                case 1:
+                    Spawn(enemy);
+                    Spawn(enemy2);
+                    break;
 
-            Instantiate(enemy, new Vector3(Random.Range(transform.position.x - transform.localScale.x / 2,
+            }
+
+            //Instantiate(enemy, new Vector3(Random.Range(transform.position.x - transform.localScale.x / 2,transform.position.x + transform.localScale.x / 2), Random.Range(transform.position.y - transform.localScale.y / 2,transform.position.y + transform.localScale.y / 2), 0), Quaternion.identity);
+        }
+    }
+    void Spawn(GameObject enemytype)
+    {
+        Instantiate(enemytype, new Vector3(Random.Range(transform.position.x - transform.localScale.x / 2,
             transform.position.x + transform.localScale.x / 2), Random.Range(transform.position.y - transform.localScale.y / 2,
             transform.position.y + transform.localScale.y / 2), 0), Quaternion.identity);
-        }
     }
 }
