@@ -24,13 +24,21 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         scoreText.text = score.ToString() + " POINTS";
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if ((Screen.orientation == ScreenOrientation.LandscapeLeft) || (Screen.orientation == ScreenOrientation.LandscapeRight))
+        {
+            transform.position = new Vector2(1250, 1075);
+        }
+        else if ((Screen.orientation == ScreenOrientation.Portrait) || (Screen.orientation == ScreenOrientation.PortraitUpsideDown))
+        {
+            transform.position = new Vector2(600, 2375);
+        }
     }
 
 

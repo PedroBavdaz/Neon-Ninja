@@ -44,4 +44,16 @@ public class InGameMenu : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         paused = false;
     }
+
+    void Update()
+    {
+        if ((Screen.orientation == ScreenOrientation.LandscapeLeft) || (Screen.orientation == ScreenOrientation.LandscapeRight))
+        {
+            transform.position = new Vector2(150, 1025);
+        }
+        else if ((Screen.orientation == ScreenOrientation.Portrait) || (Screen.orientation == ScreenOrientation.PortraitUpsideDown))
+        {
+            transform.position = new Vector2(150, 2375);
+        }
+    }
 }

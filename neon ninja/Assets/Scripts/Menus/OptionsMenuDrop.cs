@@ -29,4 +29,16 @@ public class Resumebutton : MonoBehaviour
     {
         paused = true;
     }
+
+    void Update()
+    {
+        if ((Screen.orientation == ScreenOrientation.LandscapeLeft) || (Screen.orientation == ScreenOrientation.LandscapeRight))
+        {
+            transform.position = new Vector2(100, 0);
+        }
+        else if ((Screen.orientation == ScreenOrientation.Portrait) || (Screen.orientation == ScreenOrientation.PortraitUpsideDown))
+        {
+            transform.position = new Vector2(100, 2375);
+        }
+    }
 }
