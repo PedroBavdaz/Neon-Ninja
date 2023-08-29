@@ -18,12 +18,21 @@ public class Enemy : MonoBehaviour
     //Bools
     public bool mustPatrol;
     private bool canShoot;
+    public bool juststarted = true;
+
+
+    ////////////////////////////////
+    //Cosmetics
+    public float fade;
+    Material mat;
+    bool appear = false;
 
 
     ////////////////////////////////
     //Misc
     public Rigidbody2D rb;
     public Transform player;
+
 
 
     ////////////////////////////////
@@ -53,6 +62,10 @@ public class Enemy : MonoBehaviour
         mustPatrol = true;
         canShoot = true;
         nextFire = Time.time;
+        mat = GetComponent<SpriteRenderer>().material;
+        fade = 0;
+        mat.SetFloat("_Fade", fade);
+
 
     }
 
@@ -61,6 +74,19 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+
+        //fade in
+        if (appear == false)
+        {
+            fade += Time.deltaTime;
+            mat.SetFloat("_Fade", fade);
+            if (fade >= 1f)
+            {
+                appear = true;
+            }
+        }
+
+        //bullet pitch
         if (!(Time.timeScale == 2))
         {
             bulletAudioSrc.pitch = 0.5f;
@@ -71,8 +97,6 @@ public class Enemy : MonoBehaviour
         }
 
         //activates partol mode
-
-
         if (mustPatrol)
         {
             Patrol();
@@ -80,9 +104,6 @@ public class Enemy : MonoBehaviour
 
         //calculates distance to player
         distToPlayer = Vector2.Distance(transform.position, player.position);
-
-
-
 
         if (distToPlayer <= range)
         {
@@ -97,7 +118,14 @@ public class Enemy : MonoBehaviour
 
             if (canShoot)
             {
-                Shoot();
+                if (juststarted)
+                {
+                    StartCoroutine(waiter());
+                }
+                else
+                {
+                    Shoot();
+                }
             }
         }
         else
@@ -105,6 +133,14 @@ public class Enemy : MonoBehaviour
             mustPatrol = true;
         }
 
+    }
+
+
+    //Wait
+    private IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(0.5f);
+        juststarted = false;
     }
 
 

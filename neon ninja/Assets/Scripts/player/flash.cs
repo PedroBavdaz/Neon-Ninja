@@ -18,7 +18,7 @@ public class flash : MonoBehaviour
     void Start()
     {
         myLight.intensity = maxIntensity;
-        
+
     }
 
     // Update is called once per frame
@@ -27,12 +27,13 @@ public class flash : MonoBehaviour
 
         myLight.intensity -= Time.deltaTime * Timemodifier;        //Decrease intensity
 
-        if(myLight.intensity <= 0)
+        if (myLight.intensity <= 0)
         {
             Destroy(gameObject);
         }
-        
-        
+
+
+
     }
 
 

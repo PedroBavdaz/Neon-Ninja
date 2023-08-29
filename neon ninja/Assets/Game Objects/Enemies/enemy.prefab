@@ -47,7 +47,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.32
+  m_FalloffIntensity: 0.453
   m_Color: {r: 1, g: 0.4647482, b: 0.29622638, a: 1}
   m_Intensity: 2.64
   m_LightVolumeIntensity: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 3.29
-  m_PointLightOuterRadius: 5.46
+  m_PointLightInnerRadius: 1.870548
+  m_PointLightOuterRadius: 6.485193
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: a63ca6073e1e68f4a899865d18c7dc83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4631832222325954790}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -242,6 +242,8 @@ MonoBehaviour:
   walkSpeed: 0
   range: 20
   mustPatrol: 0
+  juststarted: 1
+  fade: 0
   rb: {fileID: 9149692062060623030}
   player: {fileID: 2205630907972929373, guid: e2db85fc560f9674a8746c491250a1f8, type: 3}
   deathblood: {fileID: 30069615174951397, guid: 1df09887fa9300442a3ba28a88a36e8c, type: 3}

@@ -62,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e852b79b1bbc60149a273008ec62321d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   zoom: 12.5
   zoommod: 13.5
   camShakeTim: 0.1
+  movingparticle: {fileID: 0}
+  ScoreManager: {fileID: 0}
   camShake: {fileID: 0}
   deathblood: {fileID: 30069615174951397, guid: c750def9f9fb9d743ae617427ca15969, type: 3}
   DeathBang: {fileID: 4398966452579154374, guid: b6727d6090ca9844aab8dc390e880f30, type: 3}

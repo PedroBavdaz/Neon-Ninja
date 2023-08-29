@@ -80,7 +80,7 @@ public class Granade : MonoBehaviour
         if (col.gameObject.tag.Equals("wall"))
         {
             //Debug.Log("Hit!");
-            Destroy(gameObject);
+            Explode();
         }
 
 

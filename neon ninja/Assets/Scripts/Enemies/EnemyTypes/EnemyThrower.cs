@@ -6,27 +6,36 @@ using UnityEngine.Rendering.Universal;
 
 public class EnemyThrower : MonoBehaviour
 {
-
+    ////////////////////////////////
     //floats
     public float fireRate;
     public float nextFire;
     public float walkSpeed, range;
     private float distToPlayer;
 
-
+    ////////////////////////////////
     //Bools
     public bool mustPatrol;
     private bool canShoot;
+    public bool juststarted = true;
 
+    ////////////////////////////////
+    //Cosmetics
+    public float fade;
+    Material mat;
+    private bool appear = false;
 
+    ////////////////////////////////
     //Misc
     public Rigidbody2D rb;
     public Transform player;
 
+    ////////////////////////////////
     //death animations
     public GameObject deathblood;
     public GameObject DeathBang;
 
+    ////////////////////////////////
     //shooting
     public GameObject bullet;
     public GameObject muzzleFlash;
@@ -35,6 +44,7 @@ public class EnemyThrower : MonoBehaviour
     public float camShakeTim = 0.1f;
     public CameraShake camShake;
 
+    ////////////////////////////////
     //audio
     public AudioSource bulletAudioSrc;
 
@@ -44,6 +54,9 @@ public class EnemyThrower : MonoBehaviour
         mustPatrol = true;
         canShoot = true;
         nextFire = Time.time;
+        mat = GetComponent<SpriteRenderer>().material;
+        fade = 0;
+        mat.SetFloat("_Fade", fade);
 
     }
 
@@ -51,6 +64,19 @@ public class EnemyThrower : MonoBehaviour
     void Update()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        //fade in
+        if (appear == false)
+        {
+            fade += Time.deltaTime;
+
+            if (fade >= 1)
+            {
+                appear = true;
+            }
+            mat.SetFloat("_Fade", fade);
+        }
+
 
         if (!(Time.timeScale == 2))
         {
@@ -86,7 +112,14 @@ public class EnemyThrower : MonoBehaviour
 
             if (canShoot)
             {
-                Shoot();
+                if (juststarted)
+                {
+                    StartCoroutine(waiter());
+                }
+                else
+                {
+                    Shoot();
+                }
             }
         }
         else
@@ -96,6 +129,13 @@ public class EnemyThrower : MonoBehaviour
 
     }
 
+
+    //Wait
+    private IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(0.5f);
+        juststarted = false;
+    }
 
     //Patrol instructions
     void Patrol()

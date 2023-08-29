@@ -15,11 +15,11 @@ public class EnemySpawner : MonoBehaviour
     public ScoreManager ScoreManager;
     public bool canspawn = true;
 
+
     // Start is called before the first frame update
     void Start()
     {
         wave = 0;
-        spawncooldown = 5;
         multiplier = 1;
 
         StartCoroutine(Spawner());
@@ -40,11 +40,18 @@ public class EnemySpawner : MonoBehaviour
             switch (wave)
             {
                 case 0:
-                    Spawn(enemy);
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length < 5)
+                    {
+                        Spawn(enemy);
+                    }
                     break;
                 case 1:
-                    Spawn(enemy);
-                    Spawn(enemy2);
+                    if (GameObject.FindGameObjectsWithTag("enemy").Length < 10)
+                    {
+                        Spawn(enemy);
+                        yield return spawncooldown / 1.5;
+                        Spawn(enemy2);
+                    }
                     break;
 
             }
