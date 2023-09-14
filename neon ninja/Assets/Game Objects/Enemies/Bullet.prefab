@@ -166,16 +166,16 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000
+  m_SelfShadows: 1
+  m_ApplyToSortingLayers: 00000000774a0a5b
   m_ShapePath:
   - {x: -0.016496854, y: -0.029675292, z: 0}
   - {x: 0.016022772, y: -0.030149363, z: 0}
   - {x: 0.016614718, y: 0.032000735, z: 0}
-  - {x: -0.01578961, y: 0.032000832, z: 0}
-  m_ShapePathHash: 1726730801
+  - {x: -0.018054185, y: 0.027471649, z: 0}
+  m_ShapePathHash: 1634799748
   m_Mesh: {fileID: 0}
-  m_InstanceId: 106800
+  m_InstanceId: -35034
 --- !u!1001 &6509177323603962860
 PrefabInstance:
   m_ObjectHideFlags: 0

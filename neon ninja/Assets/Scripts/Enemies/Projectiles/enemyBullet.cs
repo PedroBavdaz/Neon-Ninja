@@ -22,7 +22,12 @@ public class enemyBullet : MonoBehaviour
         target = GameObject.FindObjectOfType<player>();
         moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
         rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
-        Destroy(gameObject, 3f);
+        //Vector3 directionToCharacter = target.transform.position - transform.position;
+        //Quaternion rotation = Quaternion.LookRotation(directionToCharacter);
+        //transform.rotation = rotation;
+
+
+
 
 
     }
@@ -31,7 +36,7 @@ public class enemyBullet : MonoBehaviour
     {
         //rotate buller towards the target
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, moveDirection);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 5f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 10f);
     }
 
 

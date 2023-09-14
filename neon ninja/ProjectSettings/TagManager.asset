@@ -6,6 +6,8 @@ TagManager:
   tags:
   - wall
   - Bullet
+  - enemy
+  - Damage
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: enemies
+    uniqueID: 1527401079
     locked: 0
